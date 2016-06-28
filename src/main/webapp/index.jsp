@@ -1,8 +1,8 @@
 <html>
 <head>
-<title>Ganesh</title>
+<title>Srini</title>
 </head>
 <body>
-	<h2>Welcome - Hello World!</h2>
+	<h2>Welcome - Hello World!...first project</h2>
 </body>
 </html>
