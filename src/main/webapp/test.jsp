@@ -24,7 +24,7 @@ try{
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery("select * from employee");
 	while(rs.next()){
-		out.prinltn(rs.getString(1) + " - " + rs.getString(0));
+		out.println(rs.getString(1) + " - " + rs.getString(0));
 	}
 	conn.close();
 }catch(Exception ex){
