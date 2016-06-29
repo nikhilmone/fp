@@ -1,8 +1,10 @@
+<%@page import="javax.persistence.Persistence"%>
+<%@page import="javax.persistence.Query"%>
+<%@page import="javax.persistence.EntityManager"%>
+<%@page import="javax.persistence.EntityManagerFactory"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page import="java.util.List"%>
 <%@page import="com.techm.cadt.cache.Employee"%>
-<%@page import="org.hibernate.Session"%>
-<%@page import="com.techm.cadt.cache.HibernateUtil"%>
 <%@page import="org.hibernate.SessionFactory"%>
 <html>
 <body>
@@ -12,26 +14,25 @@
 
 <%
      try{
-    	 SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    	 Session hibernateSession = sessionFactory.openSession();
-    	 Transaction transaction = hibernateSession.beginTransaction(); 
-    	 
+
     	 Employee newEmp  = new Employee();    	 
     	 newEmp.setName("" + System.currentTimeMillis());
     	 newEmp.setSalary(5000);
-    	 hibernateSession.save(newEmp);
-    	 
-    	 
-         List<Employee> empList = (List<Employee>)hibernateSession.createCriteria(Employee.class).list();
-         for(Employee emp : empList){
-             out.println(emp.toString());
-             out.println("<BR><BR>...inital");
-         } 
          
-         
-    	  //Release resources
-         transaction.commit();
-         //hibernateSession.close();
+    	 EntityManagerFactory emf = Persistence.createEntityManagerFactory( "com.techm.cadt.employee.persistence" );
+		 
+    	 EntityManager entityManager = emf.createEntityManager();
+    	 entityManager.getTransaction().begin();  
+    	 
+    	 entityManager.persist(newEmp);
+    	 
+    	 Query query = entityManager.createQuery( "SELECT t FROM Employee t ");  
+    	 List<Employee> list = (List<Employee>)query.getResultList();
+    	 for(Employee emp : list){
+    		 out.prinltn(emp.toString() + "<BR>");
+    	 }
+    	 entityManager.getTransaction().commit();
+    	 entityManager.close();
     	 
      }catch(Exception ex){
     	 
