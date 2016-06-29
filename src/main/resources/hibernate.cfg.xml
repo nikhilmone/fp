@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration SYSTEM "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
+<!DOCTYPE hibernate-mapping SYSTEM "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://172.30.155.13:3306/employee</property>
@@ -25,4 +25,4 @@
 			
 		<mapping class="com.techm.cadt.cache.Employee" />
 	</session-factory>
-</hibernate-configuration>
+</hibernate-mapping>
