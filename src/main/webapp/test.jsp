@@ -14,8 +14,12 @@
 
 <%
 
-String hostname= "srini-mysql.app.techmose.com";
-//request.getParameter("host");
+String hostname= request.getParameter("host");
+
+if(hostname == null || "".equals(hostname)){
+	out.println("Default ");
+	hostname = "172.30.155.13";
+}
 out.println("hostname = " + hostname);
 
 try{
@@ -25,7 +29,7 @@ try{
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery("select * from employee");
 	while(rs.next()){
-		out.println(rs.getString(1) + " - " + rs.getString(0));
+		out.println(rs.getInt(0) + " - " + rs.getString(1));
 	}
 	conn.close();
 }catch(Exception ex){
