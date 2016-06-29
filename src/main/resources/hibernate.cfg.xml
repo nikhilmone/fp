@@ -3,9 +3,9 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.password">techm123</property>
 		<property name="hibernate.connection.url">jdbc:mysql://172.30.155.13:3306/employee</property>
 		<property name="hibernate.connection.username">srini</property>
+		<property name="hibernate.connection.password">techm123</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
 		<property name="hibernate.current_session_context_class">thread</property>

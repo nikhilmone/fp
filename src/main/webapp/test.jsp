@@ -29,7 +29,7 @@ try{
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery("select * from employee");
 	while(rs.next()){
-		out.println(rs.getInt(0) + " - " + rs.getString(1));
+		out.println(rs.getInt(1) + " - " + rs.getString(3));
 	}
 	conn.close();
 }catch(Exception ex){
