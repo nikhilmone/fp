@@ -3,10 +3,7 @@
 <%@page import="javax.persistence.Persistence"%>
 <%@page import="javax.persistence.EntityManagerFactory"%>
 <%@page import="java.util.List"%>
-<%@page import="org.hibernate.Transaction"%>
 <%@page import="com.techm.cadt.cache.Employee"%>
-<%@page import="org.hibernate.Session"%>
-<%@page import="org.hibernate.SessionFactory"%>
 <html>
 <body>
 <h2>View Employee</h2>

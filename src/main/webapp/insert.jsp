@@ -2,10 +2,8 @@
 <%@page import="javax.persistence.Query"%>
 <%@page import="javax.persistence.EntityManager"%>
 <%@page import="javax.persistence.EntityManagerFactory"%>
-<%@page import="org.hibernate.Transaction"%>
 <%@page import="java.util.List"%>
 <%@page import="com.techm.cadt.cache.Employee"%>
-<%@page import="org.hibernate.SessionFactory"%>
 <html>
 <body>
 <h2>Insert Employee</h2>
