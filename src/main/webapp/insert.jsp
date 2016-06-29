@@ -23,13 +23,14 @@
     	 entityManager.getTransaction().begin();  
     	 
     	 entityManager.persist(newEmp);
+    	 entityManager.getTransaction().commit();
     	 
     	 Query query = entityManager.createQuery( "SELECT t FROM Employee t ");  
     	 List<Employee> list = (List<Employee>)query.getResultList();
     	 for(Employee emp : list){
     		 out.println(emp.toString() + "<BR>");
     	 }
-    	 entityManager.getTransaction().commit();
+    	 
     	 entityManager.close();
     	 
      }catch(Exception ex){

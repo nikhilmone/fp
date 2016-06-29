@@ -15,10 +15,9 @@
     	 EntityManagerFactory emf = Persistence.createEntityManagerFactory( "com.techm.cadt.employee.persistence" );
     			 
     	 EntityManager entityManager = emf.createEntityManager();
-    	 entityManager.getTransaction().begin();  
     	 
     	 Query query = entityManager.createQuery( "SELECT t FROM Employee t ");  
-    	 List<Employee> list = (List<Employee>)query.getResultList();
+    	 List<Employee> list = query.getResultList();
     	 for(Employee emp : list){
     		 out.println(emp.toString() + "<BR>");
     	 }
