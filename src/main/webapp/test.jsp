@@ -14,7 +14,8 @@
 
 <%
 
-String hostname= request.getParameter("host");
+String hostname= "srini-mysql.app.techmose.com";
+//request.getParameter("host");
 out.println("hostname = " + hostname);
 
 try{
