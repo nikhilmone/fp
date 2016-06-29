@@ -27,7 +27,7 @@
     	 Query query = entityManager.createQuery( "SELECT t FROM Employee t ");  
     	 List<Employee> list = (List<Employee>)query.getResultList();
     	 for(Employee emp : list){
-    		 out.prinltn(emp.toString() + "<BR>");
+    		 out.println(emp.toString() + "<BR>");
     	 }
     	 entityManager.getTransaction().commit();
     	 entityManager.close();
