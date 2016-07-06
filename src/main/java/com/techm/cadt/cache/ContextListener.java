@@ -18,11 +18,10 @@ public class ContextListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext context = event.getServletContext();
 		try {
-			System.out.println("Inside context listener");
-			EmployeeRepository employeeRepo = new EmployeeRepository(emf);
-			context.setAttribute("employeeRepo", employeeRepo);
+			MenuItemRepository menuItemRepo = new MenuItemRepository(emf);
+			context.setAttribute("menuItemRepo", menuItemRepo);
 		} catch (Exception ex) {
-			System.out.println("Couldn’t create bookstore database bean: " + ex.getMessage());
+			System.out.println("Couldn’t create menu repository database bean: " + ex.getMessage());
 		}
 	}
 	

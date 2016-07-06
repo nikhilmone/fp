@@ -1,27 +1,22 @@
-<%@page import="com.techm.cadt.cache.EmployeeRepository"%>
-<%@page import="javax.persistence.Persistence"%>
-<%@page import="javax.persistence.Query"%>
-<%@page import="javax.persistence.EntityManager"%>
-<%@page import="javax.persistence.EntityManagerFactory"%>
-<%@page import="java.util.List"%>
-<%@page import="com.techm.cadt.cache.Employee"%>
+<%@page import="com.techm.cadt.cache.MenuItemRepository"%>
+<%@page import="com.techm.cadt.cache.MenuItem"%>
 <html>
 <body>
-<h2>Insert Employee</h2>
+<h2>Insert Menu Item</h2>
 
 <!-- http://www.journaldev.com/2980/hibernate-ehcache-second-level-caching-example-tutorial -->
 
 <%
      try{
 
-    	 Employee newEmp  = new Employee();    	
-    	 long id = System.currentTimeMillis();
-    	 //newEmp.setId(id);
-    	 newEmp.setName("FName-" + id);
-    	 newEmp.setSalary(5000);
+    	 MenuItem item = new MenuItem();
+    	 item.setCost(1000);
+    	 item.setDescription("Auto Generate");
+    	 item.setIsVeg("True");
+    	 item.setItemName("Random Item generate");
     	 
-    	 EmployeeRepository repo = (EmployeeRepository)getServletContext().getAttribute("employeeRepo");
-    	 repo.create(newEmp);
+    	 MenuItemRepository repo = (MenuItemRepository)getServletContext().getAttribute("menuItemRepo");
+    	 repo.create(item);
     	  
      }catch(Exception ex){
     	 ex.printStackTrace();

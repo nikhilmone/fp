@@ -6,8 +6,8 @@
       <persistence-unit name="com.techm.cadt.employee.persistence" transaction-type="RESOURCE_LOCAL">
             <provider>org.hibernate.ejb.HibernatePersistence</provider>
             
-            <jta-data-source>java:jboss/datasources/EmployeeDS</jta-data-source>
-            <class>com.techm.cadt.cache.Employee</class>
+            <jta-data-source>java:jboss/datasources/FoodPandaDS</jta-data-source>
+            <class>com.techm.cadt.cache.MenuItem</class>
             
             <properties>
                   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

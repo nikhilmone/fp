@@ -1,22 +1,18 @@
-<%@page import="com.techm.cadt.cache.EmployeeRepository"%>
-<%@page import="javax.persistence.Query"%>
-<%@page import="javax.persistence.EntityManager"%>
-<%@page import="javax.persistence.Persistence"%>
-<%@page import="javax.persistence.EntityManagerFactory"%>
+<%@page import="com.techm.cadt.cache.MenuItem"%>
+<%@page import="com.techm.cadt.cache.MenuItemRepository"%>
 <%@page import="java.util.List"%>
-<%@page import="com.techm.cadt.cache.Employee"%>
 <html>
 <head>
-<title>View</title>
+<title>FP Menu</title>
 </head>
 <body>
-	<h2>View Employee</h2>
+	<h2>FP Menu</h2>
 	<%
 		try {
-			EmployeeRepository repo = (EmployeeRepository)getServletContext().getAttribute("employeeRepo");
-			List<Employee> list = repo.findAllOrderedByName();
-			for (Employee emp : list) {
-				out.println(emp.toString() + "<BR>");
+			MenuItemRepository repo = (MenuItemRepository)getServletContext().getAttribute("menuItemRepo");
+			List<MenuItem> list = repo.findAll();
+			for (MenuItem menu : list) {
+				out.println(menu.toString() + "<BR>");
 			}
 
 		} catch (Exception ex) {
