@@ -5,12 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = Employee.FIND_ALL, query = "SELECT c FROM Employee c ORDER BY c.name ASC"),
+    @NamedQuery(name = Employee.FIND_BY_NAME, query = "SELECT c FROM Employee c WHERE c.name = :name")
+})
+
 @Table(name = "Employee")
 public class Employee {
 
+    public static final String FIND_ALL = "Contact.findAll";
+    public static final String FIND_BY_NAME = "Contact.findByName";
+
+    
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "emp_id")

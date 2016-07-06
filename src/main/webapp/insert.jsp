@@ -1,3 +1,4 @@
+<%@page import="com.techm.cadt.cache.EmployeeRepository"%>
 <%@page import="javax.persistence.Persistence"%>
 <%@page import="javax.persistence.Query"%>
 <%@page import="javax.persistence.EntityManager"%>
@@ -13,31 +14,20 @@
 <%
      try{
 
-    	 Employee newEmp  = new Employee();    	 
-    	 newEmp.setName("" + System.currentTimeMillis());
+    	 Employee newEmp  = new Employee();    	
+    	 long id = System.currentTimeMillis();
+    	 //newEmp.setId(id);
+    	 newEmp.setName("FName-" + id);
     	 newEmp.setSalary(5000);
-         
-    	 EntityManagerFactory emf = Persistence.createEntityManagerFactory( "com.techm.cadt.employee.persistence" );
-		 
-    	 EntityManager entityManager = emf.createEntityManager();
-    	 entityManager.getTransaction().begin();  
     	 
-    	 entityManager.persist(newEmp);
-    	 entityManager.getTransaction().commit();
-    	 
-    	 Query query = entityManager.createQuery( "SELECT t FROM Employee t ");  
-    	 List<Employee> list = (List<Employee>)query.getResultList();
-    	 for(Employee emp : list){
-    		 out.println(emp.toString() + "<BR>");
-    	 }
-    	 
-    	 entityManager.close();
-    	 
+    	 EmployeeRepository repo = (EmployeeRepository)getServletContext().getAttribute("employeeRepo");
+    	 repo.create(newEmp);
+    	  
      }catch(Exception ex){
-    	 
+    	 ex.printStackTrace();
      }
 
 %>
-<a href="view.jsp">view</a>
+<a href="index.jsp">view</a>
 </body>
 </html>
