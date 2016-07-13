@@ -16,16 +16,16 @@
 
 String hostname= request.getParameter("host");
 
-if(hostname == null || "".equals(hostname)){
+/**if(hostname == null || "".equals(hostname)){
 	out.println("Default ");
 	hostname = "172.30.155.13";
 }
 out.println("hostname = " + hostname);
-
+*/
 try{
-	Class.forName("com.mysql.jdbc.Driver");
+	Class.forName("org.postgresql.Driver");
 	Connection conn = null;
-	conn = DriverManager.getConnection("jdbc:mysql://fp-postgresql:3306/employee","srini", "techm123");
+	conn = DriverManager.getConnection("jdbc:postgresql://fp-postgresql:5432/employee","srini", "techm123");
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery("select * from employee");
 	while(rs.next()){
