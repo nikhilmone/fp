@@ -25,7 +25,7 @@ out.println("hostname = " + hostname);
 try{
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = null;
-	conn = DriverManager.getConnection("jdbc:mysql://"+hostname+ ":3306/employee","srini", "techm123");
+	conn = DriverManager.getConnection("jdbc:mysql://fp-postgresql:3306/employee","srini", "techm123");
 	Statement stmt = conn.createStatement();
 	ResultSet rs = stmt.executeQuery("select * from employee");
 	while(rs.next()){
